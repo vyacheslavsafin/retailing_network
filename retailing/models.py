@@ -15,7 +15,6 @@ class Dealer(models.Model):
     debt = models.IntegerField(default=0, verbose_name='Долг поставщику')
     date_created = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
 
-
     def __str__(self):
         return f'{self.title}'
 
