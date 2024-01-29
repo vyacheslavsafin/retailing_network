@@ -14,4 +14,4 @@ class SupplierSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Dealer
-        fields = ('title', 'supplier', 'debt', 'email', 'country', 'city', 'street', 'house')
+        fields = ('title', 'supplier', 'debt', 'products', 'email', 'country', 'city', 'street', 'house')
