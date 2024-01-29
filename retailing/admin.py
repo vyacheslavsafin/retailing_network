@@ -7,3 +7,6 @@ from retailing.models import Dealer, Product
 class DealerAdmin(admin.ModelAdmin):
     list_display = ('title', 'supplier', 'debt', 'date_created')
     list_filter = ('city',)
+
+
+admin.site.register(Product)
