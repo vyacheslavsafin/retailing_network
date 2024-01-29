@@ -11,6 +11,7 @@ class Dealer(models.Model):
     street = models.CharField(max_length=50, verbose_name='улица')
     house = models.CharField(max_length=50, verbose_name='дом')
     supplier = models.ForeignKey('self', verbose_name='Поставщик', on_delete=models.SET_NULL, **NULLABLE)
+    level = models.IntegerField(verbose_name='Уровень')
     debt = models.IntegerField(default=0, verbose_name='Долг поставщику')
     date_created = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
 
@@ -21,6 +22,15 @@ class Dealer(models.Model):
     class Meta:
         verbose_name = 'Поставщик'
         verbose_name_plural = 'Поставщики'
+
+    def save(self, *args, **kwargs):
+        if self.supplier is None:
+            self.level = 0
+        elif self.supplier.supplier is None:
+            self.level = 1
+        else:
+            self.level = 2
+        super(Dealer, self).save(*args, **kwargs)
 
 
 class Product(models.Model):
