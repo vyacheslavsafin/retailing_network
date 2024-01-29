@@ -8,6 +8,7 @@
 - Активировать ```source venv/bin/activate```
 - Установить зависимости командой ```pip install -r requirements.txt```
 - Создать базу данных
+- Заполнить .env.sample своими переменными, переименовать в .env
 - Применить миграции ```python3 manage.py migrate```
 - Запустить сервер ```python3 manage.py runserver```
 
